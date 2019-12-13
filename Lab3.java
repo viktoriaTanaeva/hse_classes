@@ -19,7 +19,7 @@ public class Lab3 {
 		System.out.println();
 		
 		int string; int column; String type; int module; int pushCount; int popCount; int length;
-		if (args.length!=2) {
+		if (args.length!=7) {
 			System.out.println ("Неверные значения. Будут использованы параметры по умолчанию");
 			string=5;
 			column=5;
