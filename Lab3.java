@@ -44,15 +44,13 @@ public class Lab3 {
 		randomArray(a, module);
 		printArray(a);
 		System.out.println("Модифицированный массив:");
-		long startTime=System.nanoTime();
 		boolean sort;
 		if (type=="ascending") //true - по возрастанию, false - по убыванию
 			sort=true;
 		else sort=false;
 		sortArray(a, sort); 
-		long sortArrayTime=(System.nanoTime()-startTime)/1000;
 		printArray(a);
-		System.out.println("Время выполнения сортировки: "+sortArrayTime+" наносек");
+		time(a, sort);
 		System.out.println("");
 		
 		Stack mStack=new Stack();
@@ -77,24 +75,34 @@ public class Lab3 {
 	    randomPermutationsLength(length);
 	}
 	
-	public static int findMin (int[][]a) {
+		public static int findMin (int[][]a) {
 		int min=a[0][0];
+		int counter=0;
 		for (int i=0; i<a.length; i++) {
 			for (int j=0; j<a[0].length; j++) {
-				if (min>a[i][j])
+				if (min>a[i][j]) {
 					min=a[i][j];
+					counter=1;
+				}
+				else if (min==a[i][j]) counter++;
 			}
 		}
+		System.out.println("Количество минимумов: "+counter);
 		return min;
 	}
 	 public static int findMax (int[][]a) {
 		 int max=a[0][0];
+		 int counter=0;
 		 for (int i=0; i<a.length; i++) {
 			 for (int j=0; j<a[0].length; j++) {
-				 if (max<a[i][j])
+				 if (max<a[i][j]) {
 					 max=a[i][j];
+					 counter=1;
+				 }
+				 else if (max==a[i][j]) counter++;
 			 }
 		 }
+		 System.out.println("Количество максимумов: "+counter);
 		 return max;
 	}
 	public static void findIndexMin (int[][]a) {
@@ -141,6 +149,12 @@ public class Lab3 {
                 }
        }
     }
+	public static void time(int[][]a, boolean sort) {
+		long startTime=System.nanoTime();
+		sortArray(a, sort); 
+		long sortArrayTime=(System.nanoTime()-startTime)/1000;
+		System.out.println("Время выполнения сортировки: "+sortArrayTime+" наносек");
+	}
 	public static void randomArray (int[][]a, int module){
 		for (int i=0; i<a.length; i++) {
 			for (int j=0; j<a.length; j++) {
