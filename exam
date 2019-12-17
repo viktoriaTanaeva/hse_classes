@@ -1,0 +1,28 @@
+public class RandomTicket {
+    public static void main (String[]args) {
+        System.out.println();
+
+        int n = Integer.parseInt(args[0]);
+        int size=String.valueOf(args[0]).length();
+        System.out.println("Номер билета: " + n);
+        int sum1 = 0;
+        int sum2 = 0;
+        if (size%2==0) {
+            for (int i = 0; i < size / 2; i++) {
+                sum2 = sum2 + n % 10;
+                n = n / 10;
+            }
+        }
+        else {
+            for (int i = 0; i < size / 2+1; i++) {
+                sum2 = sum2 += n % 10;
+                n = n / 10;
+            }
+        }
+        sum1 = sum2 + n/10 % 10;
+        System.out.println("sum1=" + sum1);
+        System.out.println("sum2=" + sum2);
+        if (sum1 == sum2) System.out.println("Вам повезло! Это счастливый билет");
+        else System.out.println("К сожалению, Вам не повезло. Этот билет несчастливый");
+    }
+}
