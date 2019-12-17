@@ -1,10 +1,16 @@
+import java.util.Scanner;
 public class RandomTicket {
     public static void main (String[]args){
         //tn - ticket number
         System.out.println();
-        int length=6;
+        Scanner in=new Scanner(System.in);
+        System.out.println("Введите количество цифр в билете");
+        //int length=6;
+        int length=in.nextInt();
         int[] tn=new int[length];
-        tn[0]=1; tn[1]=2; tn[2]=3; tn[3]=3; tn[4]=2; tn[5]=1;
+        System.out.println("Введите цифры по порядку, нажимая Enter после ввода каждой цифры");
+        for (int i=0; i<length; i++) tn[i] = in.nextInt();
+        //tn[0]=1; tn[1]=2; tn[2]=3; tn[3]=3; tn[4]=2; tn[5]=1;
         System.out.print("Номер билета: "); printArray(tn);
         int[] tnLeft=new int[tn.length/2];
         int[] tnRight=new int[tn.length];
@@ -14,14 +20,8 @@ public class RandomTicket {
         //printArray(tnRight);
         System.out.println("Сумма цифр слева: "+sumNumbers(tnLeft));
         System.out.println("Сумма цифр справа: "+sumNumbers(tnRight));
-        boolean result=false;
-        if (sumNumbers(tnLeft)==sumNumbers(tnRight)) {
-            result=true;
-            System.out.println("Вам повезло! Это счастливый билет");
-        }
-        else {
-            System.out.println("К сожалению, Вам не повезло. Билет несчастливый");
-        }
+        if (sumNumbers(tnLeft)==sumNumbers(tnRight)) System.out.println("Вам повезло! Это счастливый билет");
+        else System.out.println("К сожалению, Вам не повезло. Билет несчастливый");
     }
     public static int sumNumbers (int[]array){
         int sum=0;
