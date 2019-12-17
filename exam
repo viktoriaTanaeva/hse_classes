@@ -18,8 +18,9 @@ public class RandomTicket {
             }
         }
         else {
+            else {
             for (int i = 0; i < size / 2+1; i++) {
-                sum2 = sum2 += n % 10;
+                sum2 = sum2 + n % 10;
                 n = n / 10;
             }
             n=n/10;
