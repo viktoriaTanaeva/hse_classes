@@ -12,6 +12,10 @@ public class RandomTicket {
                 sum2 = sum2 + n % 10;
                 n = n / 10;
             }
+            for (int i=size/2; i>=0; i--) {
+                sum1 = sum1 + n%10;
+                n=n/10;
+            }
         }
         else {
             for (int i = 0; i < size / 2+1; i++) {
@@ -19,7 +23,6 @@ public class RandomTicket {
                 n = n / 10;
             }
         }
-        sum1 = sum2 + n/10 % 10;
         System.out.println("sum1=" + sum1);
         System.out.println("sum2=" + sum2);
         if (sum1 == sum2) System.out.println("Вам повезло! Это счастливый билет");
