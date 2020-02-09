@@ -1,15 +1,13 @@
 #include <iostream>
 
-int clear(int &N, int M)
+void clear(int &N, int M)
 {
 	N = N & M;
-	return N;
 }
 
-int set(int &N, int M)
+void set(int &N, int M)
 {
 	N = N ^ M;
-	return N;
 }
 
 int main()
