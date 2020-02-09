@@ -1,14 +1,12 @@
 #include <iostream>
-using namespace std;
-int N;
 
-int clear(int M)
+int clear(int &N, int M)
 {
 	N = N & M;
 	return N;
 }
 
-int set(int M)
+int set(int &N, int M)
 {
 	N = N ^ M;
 	return N;
@@ -17,11 +15,13 @@ int set(int M)
 int main()
 {
 	setlocale(LC_ALL, "Russian");
+	using namespace std;
+	int N;
 	cout << "Введите число от -128 до 127" << endl;
 	cin >> N;
 	while (N > 127 || N < -128)
 	{
-		cout << "Пожалуйста, проверьте вводимое число. Оно должно находиться в диапазоне от -128 до 127" << endl;
+		cout << "Пожалуйста, проверьте вводимое число. Оно должно находиться в диапазоне от -128 до 127";
 		cin >> N;
 	}
 	bool sign = N < 0 ? 1 : 0;
